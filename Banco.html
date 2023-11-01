@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bancos</title>
+
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="script.js"> </script>
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+
+<body>
+
+    <!--<div class="toggle" onclick="toggleMenu() ">
+        
+        
+    </div>-->
+
+
+
+
+
+    <div class="navigation">
+        <ul>
+            <li>
+                <a href="#">
+                    <span class="icon"><i class="fa fa-home" aria-hidden="true"></i></span>
+                    <span class="title">Menu</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><i class="fa fa-info-circle" aria-hidden="true"></i></span>
+                    <span class="title">Help</span>
+                </a>
+            </li>
+            <li><a href="Instalacao.html">
+                    <span class="icon"><i class="fa fa-cog" aria-hidden="true"></i></span>
+                    <span class="title">Instalação</span>
+                </a>
+            </li>
+            <li>
+                <a href="Crystalreports.html">
+                    <span class="icon"><i class="fa fa-bar-chart" aria-hidden="true"></i></span>
+                    <span class="title">Crystal Reports</span>
+                </a>
+            </li>
+            <li>
+                <a href="query.html">
+                    <span class="icon"><i class="fa fa-envelope-open-o" aria-hidden="true"></i></span>
+                    <span class="title">Query</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="imagem_finanblue">
+        <img src="icon/new_log_finanblue.png" alt="">
+    </div>
+
+
+    <div class="search-container">
+        <input type="text" id="searchInput" oninput="filterList()" placeholder="Pesquisar Banco">
+
+
+
+    </div>
+
+    <ul class="accordion-container">
+        <li class="ac1">
+
+            <h3 class="testeTexto1">
+                <img class="logo_bradesco" src="./icon/logo_bradesco.png" alt="Logo Bradesco">
+                Bradesco - CNAB400
+            </h3>
+
+            <h2 class="ac-header">
+                <button class="ac-trigger">Consulta de Ocorrência e Motivo</button>
+            </h2>
+
+            <div class="container">
+                <div class="ocorrencia">
+                    <label for="ocorrencia">Ocorrência:</label>
+                </div>
+
+                <div class="digite">
+                    <input type="text" id="ocorrencia" placeholder="Digite a ocorrência">
+                </div>
+
+                <div class="ocorrencia">
+                    <label for="motivo">Motivo:</label>
+                </div>
+
+                <div class="digite">
+                    <input type="text" id="motivo" placeholder="Digite o motivo">
+                </div>
+
+
+                <div class="botaoOcorrencia">
+                    <button class="meuBotao" onclick="consultar()">Consultar</button>
+                    <div class="resultado" id="resultado"></div>
+                </div>
+
+            </div>
+
+
+
+        </li>
+        <li class="ac1">
+
+            <h3 class="testeTexto1">
+                <img class="logo_itau" src="./icon/logo_itau.png" alt="Logo Bradesco">
+                itaú - CNAB400
+            </h3>
+
+            <h2 class="ac-header">
+                <button class="ac-trigger">Consulta de Ocorrência e Motivo</button>
+            </h2>
+
+            <div class="container">
+                <div class="ocorrencia">
+                    <label for="ocorrencia">Ocorrência:</label>
+                </div>
+
+                <div class="digite">
+                    <input type="text" id="ocorrenciaItau" placeholder="Digite a ocorrência">
+                </div>
+
+                <div class="ocorrencia">
+                    <label for="motivo">Motivo:</label>
+                </div>
+
+                <div class="digite">
+                    <input type="text" id="motivoItau" placeholder="Digite o motivo">
+                </div>
+
+
+                <div class="botaoOcorrencia">
+                    <button class="meuBotao" onclick="consultarItau()">Consultar</button>
+                    <div class="resultado" id="resultadoitau"></div>
+                </div>
+            </div>
+        <li class="ac1">
+
+            <h3 class="testeTexto1">
+                <img class="logo_bbrasil" src="./icon/logo_bbrasil.png" alt="Logo Bradesco">
+                Banco do Brasil - CNAB400
+            </h3>
+
+            <h2 class="ac-header">
+                <button class="ac-trigger">Consulta de Ocorrência e Motivo</button>
+            </h2>
+
+            <div class="container">
+                <div class="ocorrencia">
+                    <label for="ocorrencia">Ocorrência:</label>
+                </div>
+
+                <div class="digite">
+                    <input type="text" id="ocorrenciaBB" placeholder="Digite a ocorrência">
+                </div>
+
+                <div class="ocorrencia">
+                    <label for="motivo">Motivo:</label>
+                </div>
+
+                <div class="digite">
+                    <input type="text" id="motivoBB" placeholder="Digite o motivo">
+                </div>
+
+
+                <div class="botaoOcorrencia">
+                    <button class="meuBotao" onclick="consultarBB()">Consultar</button>
+                    <div class="resultado" id="resultadoBB"></div>
+                </div>
+            </div>
+
+        </li>
+        <li class="ac1">
+
+            <h3 class="testeTexto1">
+                <img class="logo_bbrasil" src="./icon/logo_bbrasil.png" alt="Logo Bradesco">
+                Banco do Brasil - CNAB240
+            </h3>
+
+            <h2 class="ac-header">
+                <button class="ac-trigger">Consulta de Ocorrência e Motivo</button>
+            </h2>
+
+            <div class="container">
+                <div class="ocorrencia">
+                    <label for="ocorrencia">Ocorrência:</label>
+                </div>
+
+                <div class="digite">
+                    <input type="text" id="ocorrenciaBB240" placeholder="Digite a ocorrência">
+                </div>
+
+                <div class="ocorrencia">
+                    <label for="motivo">Motivo:</label>
+                </div>
+
+                <div class="digite">
+                    <input type="text" id="motivoBB240" placeholder="Digite o motivo">
+                </div>
+
+
+                <div class="botaoOcorrencia">
+                    <button class="meuBotao" onclick="consultarBB240()">Consultar</button>
+                    <div class="resultado" id="resultadoBB240"></div>
+                </div>
+            </div>
+
+        </li>
+        <li class="ac1">
+
+            <h3 class="testeTexto1">
+                <img class="logo_banrisul" src="./icon/logo_banrisul.png" alt="logo_banrisul">
+                Banco Banrisul - CNAB400
+            </h3>
+
+            <h2 class="ac-header">
+                <button class="ac-trigger">Consulta de Ocorrência e Motivo</button>
+            </h2>
+
+            <div class="container">
+                <div class="ocorrencia">
+                    <label for="ocorrencia">Ocorrência:</label>
+                </div>
+
+                <div class="digite">
+                    <input type="text" id="ocorrenciaBanrisul" placeholder="Digite a ocorrência">
+                </div>
+
+                <div class="ocorrencia">
+                    <label for="motivo">Motivo:</label>
+                </div>
+
+                <div class="digite">
+                    <input type="text" id="motivoBanrisul" placeholder="Digite o motivo">
+                </div>
+
+
+                <div class="botaoOcorrencia">
+                    <button class="meuBotao" onclick="consultarBanrisul()">Consultar</button>
+                    <div class="resultado" id="resultadoBanrisul"></div>
+                </div>
+            </div>
+
+        </li>
+        <li class="ac1">
+
+            <h3 class="testeTexto1">
+                <img class="logo_safra" src="./icon/logo_safra.png" alt="logo_safra">
+                Banco Banrisul - CNAB400
+            </h3>
+
+            <h2 class="ac-header">
+                <button class="ac-trigger">Consulta de Ocorrência e Motivo</button>
+            </h2>
+
+            <div class="container">
+                <div class="ocorrencia">
+                    <label for="ocorrencia">Ocorrência:</label>
+                </div>
+
+                <div class="digite">
+                    <input type="text" id="ocorrenciaSafra" placeholder="Digite a ocorrência">
+                </div>
+
+                <div class="ocorrencia">
+                    <label for="motivo">Motivo:</label>
+                </div>
+
+                <div class="digite">
+                    <input type="text" id="motivoSafra" placeholder="Digite o motivo">
+                </div>
+
+
+                <div class="botaoOcorrencia">
+                    <button class="meuBotao" onclick="consultarSafra()">Consultar</button>
+                    <div class="resultado" id="resultadoSafra"></div>
+                </div>
+            </div>
+
+        </li>
+
+
+        <li class="ac1">
+
+            <h3 class="testeTexto1">
+                <img class="logo_caixa" src="./icon/logo_caixa.png" alt="logo_safra">
+                Caixa Economica Federal - CNAB240
+            </h3>
+
+            <h2 class="ac-header">
+                <button class="ac-trigger">Consulta de Ocorrência e Motivo</button>
+            </h2>
+
+            <div class="container">
+                <div class="ocorrencia">
+                    <label for="ocorrencia">Ocorrência:</label>
+                </div>
+
+                <div class="digite">
+                    <input type="text" id="ocorrenciaCaixa240" placeholder="Digite a ocorrência">
+                </div>
+
+                <div class="ocorrencia">
+                    <label for="motivo">Motivo:</label>
+                </div>
+
+                <div class="digite">
+                    <input type="text" id="motivoCaixa240" placeholder="Digite o motivo">
+                </div>
+
+
+                <div class="botaoOcorrencia">
+                    <button class="meuBotao" onclick="consultarCaixa240()">Consultar</button>
+                    <div class="resultado" id="resultadoCaixa240"></div>
+                </div>
+            </div>
+
+        </li>
+
+
+
+
+
+
+
+    </ul>
+
+
+    <script>new Accordion('.accordion-container');</script>
+    <footer>
+
+        <div class="container-footer-all">
+
+            <div class="container-body">
+
+                <div class="colum1">
+                    <h1>Mais informações</h1>
+
+                    <p>xxxxxxxxxxxx</p>
+
+                </div>
+
+                <div class="colum2">
+
+                    <h1>Redes Sociais</h1>
+
+                    <a href="https://www.facebook.com/finanbluebr/?locale=pr_br">
+                        <div class="row">
+                            <img src="icon/facebook.png">
+                            <label>facebook</label>
+                        </div>
+                    </a>
+
+                    <a href="https://www.instagram.com/finanbluebr/" text-decoration: none>
+                        <div class="row">
+                            <img src="icon/instagram.png">
+                            <label>Instagram</label>
+                        </div>
+                    </a>
+                    <a href="https://www.youtube.com/channel/UC8jmchxKO3u9aA37xIKJ4XQ">
+                        <div class="row">
+                            <img src="icon/youtube.png">
+                            <label>Youtube</label>
+                        </div>
+                    </a>
+                    <a href="https://www.linkedin.com/company/finanblue/mycompany/">
+                        <div class="row">
+                            <img src="icon/linkindin.png">
+                            <label>Linkedin</label>
+                        </div>
+                    </a>
+                    <a href="https://finanblue.com.vc/">
+                        <div class="row">
+                            <img src="icon/tagFinanbluelog.png">
+                            <label>Finanblue</label>
+                        </div>
+                    </a>
+
+                </div>
+
+                <div class="colum3">
+
+                    <h1>Informações de contatos</h1>
+
+                    <div class="row2">
+                        <img src="icon/house.png">
+                        <label>Endereço: Av. Cândido de Abreu, 427 - Centro Cívico, Curitiba - PR, 80530-903</label>
+                    </div>
+
+                    <div class="row2">
+                        <img src="icon/smartphone.png">
+                        <label>(41)3090-5150</label>
+                    </div>
+                    <div class="row2">
+                        <img src="icon/whatsapgreen.png">
+                        <label>(41)99216-0075</label>
+                    </div>
+
+                    <div class="row2">
+                        <img src="icon/contact.png">
+                        <label>Suporte@finanblue.com.vc</label>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="container-footer">
+            <div class="footer">
+                <div class="copyright">
+                    © 2023 Todos os direitos reservados | <a href="https://github.com/gildevops">Gildevs</a>
+                </div>
+
+                <div class="information">
+                    <a href="">informações de campanha</a> | <a href="">Privacidade e Politica</a> | <a href="">Termos e
+                        condições</a>
+                </div>
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+
+
+
+</html>

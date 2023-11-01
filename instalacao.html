@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Footer Design</title>
+
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="script.js"> </script>
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+
+<body>
+
+
+    <div class="navigation">
+
+        <ul>
+            <li>
+                <a href="#">
+                    <span class="icon"><i class="fa fa-home" aria-hidden="true"></i></span>
+                    <span class="title">Menu</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <span class="icon"><i class="fa fa-info-circle" aria-hidden="true"></i></span>
+                    <span class="title">Help</span>
+                </a>
+            </li>
+            <li><a href="Instalacao.html">
+                    <span class="icon"><i class="fa fa-cog" aria-hidden="true"></i></span>
+                    <span class="title">Instalação</span>
+                </a>
+            </li>
+            <li>
+                <a href="Crystalreports.html">
+                    <span class="icon"><i class="fa fa-bar-chart" aria-hidden="true"></i></span>
+                    <span class="title">Crystal Reports</span>
+                </a>
+            </li>
+            <li>
+                <a href="query.html">
+                    <span class="icon"><i class="fa fa-envelope-open-o" aria-hidden="true"></i></span>
+                    <span class="title">Query</span>
+                </a>
+            </li>
+
+
+
+        </ul>
+    </div>
+
+
+
+    <div class="imagem_finanblue">
+        <img src="icon/new_log_finanblue.png" alt="">
+    </div>
+
+
+    <div class="search-container">
+        <input type="text" id="searchInput" oninput="filterList()" placeholder="Pesquisar">
+        <button id="enter">Enter</button>
+    </div>
+
+    <ul class="accordion-container">
+        <li class="ac">
+            <h3 class="testeTexto">INSTALAÇÃO</h3>
+            <h2 class="ac-header">
+                <button class="ac-trigger">INSTALAÇÃO DO SISTEMA GESTOR</button>
+            </h2>
+            <div class="ac-panel">
+                <h3 class="testeTexto2">1 - INSTALAR:</h3>
+                <p class="ac-text">a).NET FRAMEWORK (TALVEZ)</p>
+                <p class="ac-text">b)SQL EXPRESS 2008 R2 X86 ou X64</p>
+                <p class="ac-text">c)Sistema Gestor</p>
+                <p class="ac-text">d)Crystal Reports (serial A6A50-8900008-ZE1007S)</p>
+                <h3 class="testeTexto2">2 - ARQUIVOS:</h3>
+                <p class="ac-text">a)Comando Backup</p>
+                <p class="ac-text">b)Relatórios (Securitizadora ou Factoring)</p>
+                <p class="ac-text">c)Banco de dados zerado </p>
+                <p class="ac-text">c.1)FOMENTO: \\192.168.1.254\Suporte\Factor Gestor\Upgrade Factor\Factor Zerado
+                    Fomento</p>
+                <p class="ac-text">c.2)SECURITIZADORA: \\192.168.1.254\Suporte\Factor Gestor\Upgrade Factor\FactorZerado Securitização</p>
+                <h3 class="testeTexto2">3 - CONFIGURAR SQL:</h3>
+                <p class="ac-text">a)Comando Backup</p>
+                <p class="ac-text">b)Relatórios (Securitizadora ou Factoring)</p>
+                <p class="ac-text">c)Banco de dados zerado </p>
+                <p class="ac-text">c.1)FOMENTO: \\192.168.1.254\Suporte\Factor Gestor\Upgrade Factor\Factor Zerado
+                    Fomento</p>
+                <p class="ac-text">c.2)SECURITIZADORA: \\192.168.1.254\Suporte\Factor Gestor\Upgrade Factor\Factor
+                    Zerado Securitização</p>
+                <h3 class="testeTexto2">4 - COMANDOS:</h3>
+                <div class="ac-panel">
+                    <p class="ac-text">a)Rodar expira utilizando numero do cliente mostrado no atendimento (CASO SEJA
+                        MULTIEMPRESA, RODAR POR EMPRESA)</p>
+                    <p class="ac-text">b)Rodar licenças utilizando o numero de licenças mostrado no atendimento</p>
+                    <p class="ac-text">c)Rodar módulos se for securitizadora todos os módulos, se for factoring,
+                        verificar no atendimento quais os módulos</p>
+                <h3 class="testeTexto2">5 - CONFIG PASTAS:</h3>
+                <p class="ac-text">a)Aplicar Upgrade na pasta instalada</p>
+                <p class="ac-text">b)Atualizar o banco de dados utilizando o Atualiza.exe</p>
+                <p class="ac-text">c)Reinicar máquina</p>
+                <p class="ac-text">d)Abrir o sistema Gestor (Usuário: E, Senha: gestor2004 / E / EJS010)</p>
+                <p class="ac-text">e)Cadastrar nova empresa utilizando os dados do Atendimento</p>
+                <p class="ac-text">f)update fac_expira set exp_empresa = 'CNPJ DA EMPRESA' where exp_codigo
+                    ='o_codigo_do_atendimento'</p>
+                <p class="ac-text">g)Atribuir tipo de empresa (Fac ou Sec), trocar e excluir empresa de teste</p>
+                <p class="ac-text">h)Compartilhar pasta onde foi instalado para todos</p>
+                <p class="ac-text">i)No firewall liberar portas de entrada UDP e TCP, porta 1433</p>
+                <p class="ac-text">j)Adicionar informaçoes para teste GTI 30 dias, site apenas</p>
+                <p class="ac-text">j.1)(https://www.gtidigital.com.br/Assina/ProcessoAssinatura.asmx?WSDL)</p>
+                <p class="ac-text">k)Criar uma pasta para arquivos de integração digital, e de audio, e
+                    parametrizarno painel de controle</p>
+                    <h3 class="testeTexto2">6 - BACKUP:</h3>
+                    <p class="ac-text">a)Comando Backup</p>
+                <p class="ac-text">b)Relatórios (Securitizadora ou Factoring)</p>
+                <p class="ac-text">c)Banco de dados zerado </p>
+                <p class="ac-text">c.1)FOMENTO: \\192.168.1.254\Suporte\Factor Gestor\Upgrade Factor\Factor Zerado
+                    Fomento</p>
+                <p class="ac-text">c.2)SECURITIZADORA: \\192.168.1.254\Suporte\Factor Gestor\Upgrade Factor\Factor
+                    Zerado Securitização</p>
+                    <h3 class="testeTexto2">7 - POS INSTALAÇÃO</h3>
+                    <p class="ac-text">a)Criar pasta com nome do cliente em \\192.168.1.254\Suporte\Factor Gestor</p>
+                    <p class="ac-text">b)Realizar teste dos relatórios, contratos, aditivos, termos..</p>
+                    <p class="ac-text">c)Salvar documentação operacional impressa na pasta do cliente</p>
+                    <p class="ac-text">c1)Fomento</p>
+                    <p class="ac-text">>Contrato Mãe</p>
+                    <p class="ac-text">>Contrato de adiantamento</p>
+                    <p class="ac-text">>Contrato de trustee</p>
+                    <p class="ac-text">>Borderô</p>
+                    <p class="ac-text">>Termo Aditivo</p>
+                    <p class="ac-text">Securitizadora</p>
+                    <p class="ac-text">>Contrato de securitização</p>
+                    <p class="ac-text">>Borderô/p>
+                    <p class="ac-text">>Declaração de recebimento</p>
+                    <p class="ac-text">>Termo de Securitização</p>
+                    
+                </div>
+
+               
+            </div>
+            
+    </ul>
+
+
+    <script>new Accordion('.accordion-container');</script>
+    <footer>
+
+        <div class="container-footer-all">
+
+            <div class="container-body">
+
+                <div class="colum1">
+                    <h1>Mais informações</h1>
+
+                    <p>xxxxxxxxxxxx</p>
+
+                </div>
+
+                <div class="colum2">
+
+                    <h1>Redes Sociais</h1>
+
+                    <a href="https://www.facebook.com/finanbluebr/?locale=pr_br">
+                        <div class="row">
+                            <img src="icon/facebook.png">
+                            <label>facebook</label>
+                        </div>
+                    </a>
+
+                    <a href="https://www.instagram.com/finanbluebr/" text-decoration: none>
+                        <div class="row">
+                            <img src="icon/instagram.png">
+                            <label>Instagram</label>
+                        </div>
+                    </a>
+                    <a href="https://www.youtube.com/channel/UC8jmchxKO3u9aA37xIKJ4XQ">
+                        <div class="row">
+                            <img src="icon/youtube.png">
+                            <label>Youtube</label>
+                        </div>
+                    </a>
+                    <a href="https://www.linkedin.com/company/finanblue/mycompany/">
+                        <div class="row">
+                            <img src="icon/linkindin.png">
+                            <label>Linkedin</label>
+                        </div>
+                    </a>
+                    <a href="https://finanblue.com.vc/">
+                        <div class="row">
+                            <img src="icon/tagFinanbluelog.png">
+                            <label>Finanblue</label>
+                        </div>
+                    </a>
+
+                </div>
+
+                <div class="colum3">
+
+                    <h1>Informações de contatos</h1>
+
+                    <div class="row2">
+                        <img src="icon/house.png">
+                        <label>Endereço: Av. Cândido de Abreu, 427 - Centro Cívico, Curitiba - PR, 80530-903</label>
+                    </div>
+
+                    <div class="row2">
+                        <img src="icon/smartphone.png">
+                        <label>(41)3090-5150</label>
+                    </div>
+                    <div class="row2">
+                        <img src="icon/whatsapgreen.png">
+                        <label>(41)99216-0075</label>
+                    </div>
+
+                    <div class="row2">
+                        <img src="icon/contact.png">
+                        <label>Suporte@finanblue.com.vc</label>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="container-footer">
+            <div class="footer">
+                <div class="copyright">
+                    © 2023 Todos os direitos reservados | <a href="https://github.com/gildevops">Gildevs</a>
+                </div>
+
+                <div class="information">
+                    <a href="">informações de campanha</a> | <a href="">Privacidade e Politica</a> | <a href="">Termos e
+                        condições</a>
+                </div>
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+
+
+
+</html>

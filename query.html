@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Footer Design</title>
+
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="script.js"> </script>
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+
+<body>
+
+
+
+    <div class="navigation">
+
+        <ul>
+            <li>
+                <a href="#">
+                    <span class="icon"><i class="fa fa-home" aria-hidden="true"></i></span>
+                    <span class="title">Menu</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <span class="icon"><i class="fa fa-info-circle" aria-hidden="true"></i></span>
+                    <span class="title">Help</span>
+                </a>
+            </li>
+            <li><a href="Instalacao.html">
+                    <span class="icon"><i class="fa fa-cog" aria-hidden="true"></i></span>
+                    <span class="title">Instalação</span>
+                </a>
+            </li>
+            <li>
+                <a href="Crystalreports.html">
+                    <span class="icon"><i class="fa fa-bar-chart" aria-hidden="true"></i></span>
+                    <span class="title">Crystal Reports</span>
+                </a>
+            </li>
+            <li>
+                <a href="query.html">
+                    <span class="icon"><i class="fa fa-envelope-open-o" aria-hidden="true"></i></span>
+                    <span class="title">Query</span>
+                </a>
+            </li>
+
+
+
+        </ul>
+    </div>
+
+
+
+    <div class="imagem_finanblue">
+        <img src="icon/new_log_finanblue.png" alt="">
+    </div>
+
+
+    <div class="search-container">
+        <input type="text" id="searchInput" oninput="filterList()" placeholder="Pesquisar">
+        <button id="enter">Enter</button>
+    </div>
+
+    <ul class="accordion-container">
+        <li class="ac">
+            <h3 class="testeTexto">2netlotes[ ]</h3>
+            <h2 class="ac-header">
+                <button class="ac-trigger">Criar a tabela netlotes[ ] necessidade após atualização</button>
+            </h2>
+            <div class="ac-panel">
+                <p class="ac-text">CREATE TABLE [dbo].[net2_lotes](</p>
+                <p class="ac-text">[id] [int] IDENTITY(1,1) NOT NULL,</p>
+                <p class="ac-text">[id_status] [int] NULL,</p>
+                <p class="ac-text">[cnpj_cliente] [varchar](18) NULL,</p>
+                <p class="ac-text">[obs] [text] NULL,</p>
+                <p class="ac-text">[data_criacao] [datetime] NULL,</p>
+                <p class="ac-text">[data_efetivacao] [datetime] NULL,</p>
+                <p class="ac-text">[data_envio] [datetime] NULL,</p>
+                <p class="ac-text">[avisado] [bit] NULL,</p>
+                <p class="ac-text">[sacadoancora] [char](1) NOT NULL,</p>
+                <p class="ac-text">CONSTRAINT [PK_net2_lotes] PRIMARY KEY CLUSTERED </p>
+                <p class="ac-text">[id] ASC(</p>
+                <p class="ac-text">)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF,
+                    ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90) ON [PRIMARY]</p>
+                <p class="ac-text">) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]</p>
+                <p class="ac-text">GO</p>
+                <p class="ac-text">ALTER TABLE [dbo].[net2_lotes] ADD DEFAULT ((0)) FOR [avisado]</p>
+                <p class="ac-text">GO</p>
+                <p class="ac-text">ALTER TABLE [dbo].[net2_lotes] ADD DEFAULT ('N') FOR [sacadoancora]</p>
+                <p class="ac-text">GO</p>
+            </div>
+
+
+
+            </div>
+        </li>
+
+        <li class="ac">
+            <h3 class="testeTexto">Filtro MVC</h3>
+            <h2 class="ac-header">
+                <button class="ac-trigger">Filtrando colunas e cedulas</button>
+            </h2>
+            <div class="ac-panel">
+                <p class="ac-text">SELECT</p>
+                <p class="ac-text">T.name AS Tabela,</p>
+                <p class="ac-text">C.name AS Coluna</p>
+                <p class="ac-text">FROM</p>
+                <p class="ac-text">sys.sysobjects AS T (NOLOCK)</p>
+                <p class="ac-text">INNER JOIN sys.all_columns AS C (NOLOCK) ON T.id = C.object_id AND T.XTYPE = 'U'
+                </p>
+                <p class="ac-text">WHERE</p>
+                <p class="ac-text">C.NAME LIKE '%NomeDoCampo%'</p>
+                <p class="ac-text">ORDER BY</p>
+                <p class="ac-text">T.name ASC</p>
+            </div>
+
+            </div>
+        </li>
+
+
+        <li class="ac">
+            <h3 class="testeTexto">EXECUTAR O RETORNO</h3>
+            <h2 class="ac-header">
+                <button class="ac-trigger">EXECUTAR O RETORNO</button>
+            </h2>
+            <div class="ac-panel">
+                <p class="ac-text">USE factor_sec</p>
+                <p class="ac-text">GO</p>
+                <p class="ac-text">exec sp_retornoclientesGestorNet26 26<p class="ac-text"></p>
+                <p class="ac-text">GO</p>
+
+            </div>
+
+
+
+            </div>
+        </li>
+
+        <li class="ac">
+            <h3 class="testeTexto">IGUALAR O USUÁRIO</h3>
+            <h2 class="ac-header">
+                <button class="ac-trigger">IGUALAR O USUÁRIO</button>
+            </h2>
+            <div class="ac-panel">
+                <p class="ac-text">DELETE FROM fac_acesso WHERE usu_nome = 'novo'</p>
+                    <p class="ac-text">GO</p>
+                    <p class="ac-text">INSERT INTO fac_acesso SELECT 'novo', fun_codigo, ace_permissao FROM fac_acesso
+                        WHERE usu_nome = 'ANTIGO'</p>
+                    <p class="ac-text">go</p>
+                    <p class="ac-text">delete fac_acessorelatorio where usu_nome = 'novo'</p>
+                    <p class="ac-text">insert into fac_acessorelatorio select 'novo', rpt_id, acr_permissao from
+                        fac_acessorelatorio where usu_nome = 'ANTIGO' </p>
+            </div>
+
+
+
+            </div>
+        </li>
+
+
+        <li class="ac">
+            <h3 class="testeTexto">INSERIR BANCO</h3>
+            <h2 class="ac-header">
+                <button class="ac-trigger">INSERIR BANCO</button>
+            </h2>
+            <div class="ac-panel">
+                <p class="ac-text">insert into fac_banco (bnc_numero, bnc_nome) VALUES (NumeroDoBanco,'NU PAGAMENTOS
+                    S.A')</p>
+                <p class="ac-text">go </p>
+                <p class="ac-text"></p>
+                <p class="ac-text"></p>
+                <p class="ac-text"></p>
+                <p class="ac-text"></p>
+                <p class="ac-text"></p>
+                <p class="ac-text"></p>
+                <p class="ac-text"></p>
+                <p class="ac-text"></p>
+            </div>
+
+
+
+            </div>
+        </li>
+
+
+        <li class="ac">
+            <h3 class="testeTexto">DEFAULT ERRO</h3>
+            <h2 class="ac-header">
+                <button class="ac-trigger">DEFAULT APÓS RODAR ATUALIZA</button>
+            </h2>
+            <div class="ac-panel">
+                <p class="ac-text">Drop paramentrosacado</p>
+                <p class="ac-text">go</p>
+
+            </div>
+
+
+
+            </div>
+        </li>
+
+        <li class="ac">
+            <h3 class="testeTexto">MIGRAÇÃO CADASTRAL</h3>
+            <h2 class="ac-header">
+                <button class="ac-trigger">MIGRAÇÃO CADASTRAL fac_representante, fac_cadastro, fac_cliente </button>
+            </h2>
+            <div class="ac-panel">
+                <p class="ac-text">DELETE FROM factor_sec1.dbo.fac_cadastro</p>
+                    <!---->
+                    <p class="ac-text">GO</p>
+                    <p class="ac-text">INSERT INTO factor_sec1.dbo.fac_cadastro</p>
+                    <p class="ac-text">SELECT cad_cgccpf, cad_razao, cad_fantasia, cad_endereco, cad_bairro, cad_cidade,
+                        cad_uf,</p>
+                    <p class="ac-text">cad_cep, cad_fone, cad_fax, cad_email, cad_proconsulta, cad_ultconsulta,
+                        cad_grupo, cad_celular, cad_enderecocob, </p>
+                    <p class="ac-text">cad_bairrocob, cad_cidadecob, cad_ufcob, cad_cepcob,
+                        cad_fonecob,cad_rating,cad_recjudicial,cad_copiaemailsacados</p>
+                    <p class="ac-text">FROM factor_sec.dbo.fac_cadastro</p>
+                    <p class="ac-text">GO</p>
+                    <p class="ac-text">INSERT INTO factor_sec1.dbo.fac_cliente</p>
+                    <p class="ac-text">SELECT cad_cgccpf, cli_datacadastro, cli_inscricao, cli_contato,
+                        cli_classificacao, cli_agente, cli_atividade, cli_faturamento, </p>
+                    <p class="ac-text">cli_simples, cli_fundacao, cli_fomento, cli_obs, cli_comissao,
+                        cli_obsclassificacao, cli_cnab, cli_sender, cli_senha, cli_contacontabilativo,</p>
+                    <p class="ac-text">cli_contacontabilpassivo, cli_codaux, cli_grupoeconomico, cli_ativo,
+                        cli_protesto, cli_serasa, cli_usuario, cli_equifax, cli_agencia, </p>
+                    <p class="ac-text">cli_conta, cli_convenio, cli_lote, cli_registroJC, cli_dataregistroJC,
+                        cli_descricaoJC, cli_filial, cli_pzmaxreccons, cli_inscricaomunicipal,</p>
+                    <p class="ac-text">cli_gerann, cli_cobranca, cli_pefin, cli_gerente, cli_cobrancacheque,
+                        cli_seqPEFIN, cli_assunto, cli_corpoemail, cli_contabilconfissao,
+                        cli_diasPEFIN,cli_datamigracaoPEFIN</p>
+                    <p class="ac-text">
+                        cli_subpzrepasse,cli_subplanotaxas,cli_subrepasse,cli_subvalorrepasse,cli_subaluguel,cli_subdiaaluguel,cli_subatipica,cli_subisencao,cli_subnumlogico,cli_agente_prospect,
+                    </p>
+                    <p class="ac-text">
+                        cli_filialcliente,cli_superintendente,cli_digcodigo,cli_consultor,cli_consultordesde,cli_consultorate,cli_recjudata,cli_recjuvalor,cli_recjufase,
+                    </p>
+                    <p class="ac-text">
+                        cli_ultimacadastral,cli_proximacadastral,cli_situacaocadastral,cli_motivocadastral,cli_datacadastral
+                    </p>
+                    <p class="ac-text">FROM factor_sec.dbo.fac_cliente</p>
+                    <p class="ac-text">GO</p>
+                    <p class="ac-text">INSERT INTO factor_sec1.dbo.fac_sacado</p>
+                    <p class="ac-text">SELECT cad_cgccpf, sac_datacadastro, sac_ativo, sac_inscricao, sac_contato,
+                        sac_limite, sac_maxdocumento, </p>
+                    <p class="ac-text">sac_ultconsulta, sac_obs, sac_obsclassificacao, </p>
+                    <p class="ac-text">sac_acumulo, sac_dataacumulo, sac_grupo, sac_grupoeconomico, sac_pefin,
+                        sac_confirmaterceiros,sac_sacadocontrole</p>
+                    <p class="ac-text">FROM factor_sec.dbo.fac_sacado</p>
+                    <p class="ac-text">GO</p>
+                    <p class="ac-text">INSERT INTO factor_Sec1.dbo.fac_cadastroconsulta</p>
+                    <p class="ac-text">SELECT cad_cgccpf, cre_codigo, ccs_usuario, ccs_data, ccs_string, ccs_produto,
+                        ccs_cliente,emp_cgc1,adi_numero,ccs_pdf </p>
+                    <p class="ac-text">FROM factor_sec.dbo.fac_cadastroconsulta</p>
+                    <p class="ac-text">GO</p>
+                    <p class="ac-text">INSERT INTO factor_sec1.dbo.fac_representante</p>
+                    <p class="ac-text">SELECT cad_cgccpf, rep_identidade, rep_estcivil, rep_nacionalidade,
+                        rep_profissao, rep_obs, rep_casamento, cjg_cpf, cjg_nome, cjg_endereco, cjg_bairro,cjg_cidade,
+                        cjg_uf, cjg_cep, cjg_fone,</p>
+                    <p class="ac-text">cjg_fax, cjg_email, cjg_identidade, cjg_nacionalidade, cjg_profissao,
+                        rep_dtnascimento, cjg_dtnascimento, </p>
+                    <p class="ac-text">rep_natural, rep_pai, rep_mae</p>
+                    <p class="ac-text">FROM factor_sec.dbo.fac_representante</p>
+                    <p class="ac-text">GO</p>
+                    <p class="ac-text">SET IDENTITY_INSERT gestor_sec.dbo.fac_contratocontadestino ON</p>
+                    <p class="ac-text">insert into gestor_sec.dbo.fac_contratocontadestino (ccd_codigo, ccd_cliente,
+                        ccd_banco, ccd_agencia, ccd_conta, ccd_cgccpf, ccd_favorecido, ccd_digito, ccd_digitoagencia,
+                        ccd_padrao,</p>
+                    <p class="ac-text">ccd_tipoconta, ccd_digital, ccd_pix)</p>
+                    <p class="ac-text">select ccd_codigo, ccd_cliente, ccd_banco, ccd_agencia, ccd_conta, ccd_cgccpf,
+                        ccd_favorecido, ccd_digito, ccd_digitoagencia, ccd_padrao, ccd_tipoconta, ccd_digital, ccd_pix
+                    </p>
+                    <p class="ac-text">from factor.dbo.fac_contratocontadestino</p>
+                    <p class="ac-text">SET IDENTITY_INSERT gestor_sec.dbo.fac_contratocontadestino OFF</p>
+
+            </div>
+
+
+
+            </div>
+        </li>
+
+    </ul>
+
+    
+
+
+    <script>new Accordion('.accordion-container');</script>
+    <footer>
+
+        <div class="container-footer-all">
+
+            <div class="container-body">
+
+                <div class="colum1">
+                    <h1>Mais informações</h1>
+
+                    <p>xxxxxxxxxxxx</p>
+
+                </div>
+
+                <div class="colum2">
+
+                    <h1>Redes Sociais</h1>
+
+                    <a href="https://www.facebook.com/finanbluebr/?locale=pr_br">
+                        <div class="row">
+                            <img src="icon/facebook.png">
+                            <label>facebook</label>
+                        </div>
+                    </a>
+
+                    <a href="https://www.instagram.com/finanbluebr/" text-decoration: none>
+                        <div class="row">
+                            <img src="icon/instagram.png">
+                            <label>Instagram</label>
+                        </div>
+                    </a>
+                    <a href="https://www.youtube.com/channel/UC8jmchxKO3u9aA37xIKJ4XQ">
+                        <div class="row">
+                            <img src="icon/youtube.png">
+                            <label>Youtube</label>
+                        </div>
+                    </a>
+                    <a href="https://www.linkedin.com/company/finanblue/mycompany/">
+                        <div class="row">
+                            <img src="icon/linkindin.png">
+                            <label>Linkedin</label>
+                        </div>
+                    </a>
+                    <a href="https://finanblue.com.vc/">
+                        <div class="row">
+                            <img src="icon/tagFinanbluelog.png">
+                            <label>Finanblue</label>
+                        </div>
+                    </a>
+
+
+
+
+
+                </div>
+
+                <div class="colum3">
+
+                    <h1>Informações de contatos</h1>
+
+                    <div class="row2">
+                        <img src="icon/house.png">
+                        <label>Endereço: Av. Cândido de Abreu, 427 - Centro Cívico, Curitiba - PR, 80530-903</label>
+                    </div>
+
+                    <div class="row2">
+                        <img src="icon/smartphone.png">
+                        <label>(41)3090-5150</label>
+                    </div>
+                    <div class="row2">
+                        <img src="icon/whatsapgreen.png">
+                        <label>(41)99216-0075</label>
+                    </div>
+
+                    <div class="row2">
+                        <img src="icon/contact.png">
+                        <label>Suporte@finanblue.com.vc</label>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+        <div class="container-footer">
+            <div class="footer">
+                <div class="copyright">
+                    © 2023 Todos os direitos reservados | <a href="https://github.com/gildevops">Gildevs</a>
+                </div>
+
+                <div class="information">
+                    <a href="">informações de campanha</a> | <a href="">Privacidade e Politica</a> | <a href="">Termos e
+                        condições</a>
+                </div>
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+
+
+
+</html>
