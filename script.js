@@ -1539,3 +1539,558 @@ function consultarCaixa240() {
     document.getElementById("resultadoCaixa240").innerText = "Resultado: " + nomePessoaCaixa240;
 }
 
+
+function obterNomePorOcorrenciaBancoBic(ocorrenciaBancoBic, motivoBancoBic) {
+    const mapaOcorrenciaMotivoBancoBic = {
+        "02-00": "Entrada Confirmada",
+        "03-08": "Entrada Rejeitada - Vencimento não validado",
+        "03-12": "Entrada Rejeitada - Ocorrência não cadastrada",
+        "03-13": "Entrada Rejeitada - CEP, endereço ou praça não atendida",
+        "03-14": "Entrada Rejeitada - Agência cobradora não atendida",
+        "03-15": "Entrada Rejeitada - Título duplicado",
+        "03-16": "Entrada Rejeitada - Sacado com nome, CPF/CNPJ inválidos",
+        "03-17": "Entrada Rejeitada - Erro dígito nosso número",
+        "03-18": "Entrada Rejeitada - Título vencido",
+        "03-19": "Entrada Rejeitada - CEP não cobrado pelo banco correspondente",
+        "03-99": "Entrada Rejeitada - Título rejeitado pelo banco",
+        "04-00": "Transferência de Carteira - Entrada",
+        "05-00": "Transferência de Carteira - Baixa",
+        "06-00": "Liquidação Normal",
+        "07-00": "Liquidação Por Conta",
+        "08-00": "Baixado Por Saldo",
+        "09-00": "Baixado Automaticamente",
+        "10-00": "Baixado Conforme Instruções",
+        "11-00": "Em SER (Posição em Aberto)",
+        "12-00": "Abatimento Concedido",
+        "13-00": "Abatimento Cancelado",
+        "14-00": "Vencimento Alterado",
+        "15-00": "Liquidação em Cartório",
+        "16-00": "Devolução do Cartório",
+        "17-00": "Confirmação Envio Para Cartório",
+        "18-00": "Título Não Processado",
+        "19-00": "Baixa Por Crédito Manual"
+    }
+
+    const chaveBancoBic = `${ocorrenciaBancoBic.toLowerCase()}-${motivoBancoBic.toUpperCase()}`;
+
+
+
+    if (mapaOcorrenciaMotivoBancoBic[chaveBancoBic]) {
+        return mapaOcorrenciaMotivoBancoBic[chaveBancoBic];
+    } else {
+        return "Combinação de ocorrência e motivo inválida";
+    }
+}
+
+
+
+function consultarBancoBic() {
+    const ocorrenciaBancoBic = document.getElementById("ocorrenciaBancoBic").value.trim().padStart(2, '0');
+    const motivoBancoBic = document.getElementById("motivoBancoBic").value.trim().padStart(2, '0');
+
+    const nomePessoaBancoBic = obterNomePorOcorrenciaBancoBic(ocorrenciaBancoBic, motivoBancoBic);
+    document.getElementById("resultadoBancoBic").innerText = "Resultado: " + nomePessoaBancoBic;
+}
+
+
+/*live bank*/
+function obterNomePorOcorrenciaLiveBank(ocorrenciaLiveBank, motivoLiveBank) {
+    const mapaOcorrenciaMotivoLiveBank = {
+        "02-00": "Entrada confirmada",
+        "02-17": "Data de vcto anterior a data de emissão",
+        "02-21": "Espécie do título inválido",
+        "02-45": "Nome do sacado inválido",
+        "02-46": "CNPJ/CPF do sacado inválido",
+        "02-47": "Endereço do sacado não informado",
+        "02-48": "CEP irregular",
+        "02-53": "CNPJ/CPF do cliente inválido",
+        "02-54": "Cliente não informado",
+        "02-67": "Débito automático agendado",
+        "02-68": "Débito não agendado - erro nos dados de remessa",
+        "02-69": "Débito não agendado - sacado não consta no cadastro",
+        "02-70": "Débito não agendado - cedente não autorizado",
+        "02-71": "Débito não agendado - cedente não tem débito aut.",
+        "02-72": "Débito não agendado - código moeda diferente de R$",
+        "02-73": "Débito não agendado - data de vcto inválida",
+        "03-02": "Código do registro detalhe inválido",
+        "03-03": "Código de ocorrência inválida",
+        "03-04": "Código de ocorrência não permitida para a carteira",
+        "03-05": "Código de ocorrência não numérico",
+        "03-08": "Nosso número inválido",
+        "03-09": "Nosso número duplicado",
+        "03-10": "Carteira inválida",
+        "03-16": "Data de vcto inválida",
+        "03-18": "Vcto fora do prazo de operação",
+        "03-20": "Valor do título inválido",
+        "03-21": "Espécie do título inválida",
+        "03-22": "Espécie não permitida para a carteira",
+        "03-24": "Data de emissão inválida",
+        "03-38": "Prazo para protesto inválido",
+        "03-44": "Agência cedente não prevista",
+        "03-50": "CEP irregular - banco correspondente",
+        "03-63": "Entrada para título já cadastrado",
+        "03-74": "Débito não agendado, título não registrado",
+        "06-00": "Liquidação normal",
+        "06-15": "Liquidação com cheque",
+        "09-10": "Baixa comandada pela empresa",
+        "10-00": "Baixa comandada",
+        "10-14": "Título protestado",
+        "10-16": "Baixado por tempo excedido",
+        "10-20": "Mudança de carteira",
+        "11-00": "Em SER - arquivo de títulos pendentes",
+        "12-00": "Abatimento concedido",
+        "13-00": "Abatimento cancelado",
+        "14-00": "Vencimento alterado",
+        "15-00": "Liquidação em cartório",
+        "17-00": "Liquidação após baixa ou título não registrado",
+        "18-00": "Acerto de depositária",
+        "19-00": "Titulo encaminhado a cartorio",
+        "20-00": "Confimação receb. instr. sustação de protesto",
+        "21-00": "Acerto de controle de participante",
+        "23-00": "Entrada de título em cartório",
+        "24-48": "CEP inválido",
+        "27-07": "Baixa rejeitada - agência/conta/dígito inválidos",
+        "27-08": "Baixa rejeitada - nosso número inválido",
+        "27-10": "Baixa rejeitada - carteira inválida",
+        "27-15": "Baixa rejeitada - carteira/agência/conta/nn invál.",
+        "27-40": "Baixa rejeitada - título com protesto emitido",
+        "27-42": "Baixa rejeitada - código via Telebradesco inválido",
+        "27-60": "Baixa rejeitada - movto para título não cadastrado",
+        "28-03": "Tarifa de sustação",
+        "28-04": "Tarifa de protesto",
+        "28-08": "Custas de protesto",
+        "30-01": "Alteração - código do banco inválido",
+        "30-05": "Alteração - código da ocorrência não numérico",
+        "30-08": "Alteração - nosso número inválido",
+        "30-15": "Alteração - carteira/agência/conta/nn inválidos",
+        "30-28": "Alteração - código via Telebradesco inválido",
+        "30-29": "Alteração - valor de desconto >= valor do título",
+        "30-33": "Alteração - valor do abatimento inválido",
+        "30-34": "Alteração - valor do abatimento >= valor do título",
+        "30-38": "Alteração - prazo para protesto inválido",
+        "30-39": "Alteração - pedido de protesto não permitido",
+        "30-40": "Alteração - título com protesto emitido",
+        "30-60": "Alteração - movto para título não cadastrado",
+        "32-01": "Instr. rejeitada - código do banco inválido",
+        "32-02": "Instr. rejeitada - cód. do reg. detalhe inválido",
+        "32-04": "Instr. rejeitada - código de ocorr. não permitido",
+        "32-05": "Instr. rejeitada - código de ocorr. não numérico",
+        "32-07": "Instr. rejeitada - agência/conta/dígito inválidos",
+        "32-08": "Instr. rejeitada - nosso número inválido",
+        "32-10": "Instr. rejeitada - carteira inválida",
+        "32-16": "Instr. rejeitada - data de vcto inválida",
+        "32-17": "Instr. rejeitada - vcto anterior a emissão",
+        "32-18": "Instr. rejeitada - vcto fora do prazo de operação",
+        "32-21": "Instr. rejeitada - espécie do título inválida",
+        "32-22": "Instr. rejeitada - espécie não permitida",
+        "32-24": "Instr. rejeitada - data de emissão inválida",
+        "32-28": "Instr. rejeitada - código Telebradesco inválido",
+        "32-29": "Instr. rejeitada - desconto >= valor do título",
+        "32-31": "Instr. rejeitada - já existe desconto anterior",
+        "32-33": "Instr. rejeitada - valor do abatiento inválido",
+        "32-34": "Instr. rejeitada - abatimento >= valor do título",
+        "32-36": "Instr. rejeitada - já existe abatimento anterior",
+        "32-38": "Instr. rejeitada - prazo de protesto inválido",
+        "32-39": "Instr. rejeitada - pedido protesto não permitido",
+        "32-40": "Instr. rejeitada - título com protesto emitido",
+        "32-41": "Instr. rejeitada - pedido canc./sust. inválido",
+        "32-45": "Instr. rejeitada - nome do sacado não informado",
+        "32-46": "Instr. rejeitada - CNPJ/CPF do sacado inválidos",
+        "32-47": "Instr. rejeitada - endereço sacado não informado",
+        "32-48": "Instr. rejeitada - CEP inválido",
+        "32-50": "Instr. Rejeitada - Banco Correspondente",
+        "32-60": "Instr. rejeitada - movto título não cadastrado",
+        "33-00": "Confirmação pedido alteração outros dados",
+        "34-00": "Retirado de cartório e manut. carteira",
+        "35-81": "Tentativas de desagendamento esgotadas, baixado",
+        "35-82": "Tentativas de desagendamento esgotadas, pendente LiveBank"
+    }
+
+    const chaveLiveBank = `${ocorrenciaLiveBank.toLowerCase()}-${motivoLiveBank.toUpperCase()}`;
+
+
+
+    if (mapaOcorrenciaMotivoLiveBank[chaveLiveBank]) {
+        return mapaOcorrenciaMotivoLiveBank[chaveLiveBank];
+    } else {
+        return "Combinação de ocorrência e motivo inválida";
+    }
+}
+
+
+
+function consultarLiveBank() {
+    const ocorrenciaLiveBank = document.getElementById("ocorrenciaLiveBank").value.trim().padStart(2, '0');
+    const motivoLiveBank = document.getElementById("motivoLiveBank").value.trim().padStart(2, '0');
+
+    const nomePessoaLiveBank = obterNomePorOcorrenciaLiveBank(ocorrenciaLiveBank, motivoLiveBank);
+    document.getElementById("resultadoLiveBank").innerText = "Resultado: " + nomePessoaLiveBank;
+}
+
+
+
+function obterNomePorOcorrenciaSantander(ocorrenciaSantander, motivoSantander) {
+    const mapaOcorrenciaMotivoSantander = {
+        "02-00": "Entrada Confirmada",
+        "03-02": "Código do registro detalhe inválido",
+        "03-23": "Aceite inválido",
+        "03-43": "Prazo para baixa/devolução inválido",
+        "03-35": "Abatimento a conceder não confere",
+        "03-24": "Data de emissão inválida",
+        "03-17": "Data de vencimento anterior à data de emissão",
+        "03-20": "Valor do título inválido",
+        "03-33": "Valor do abatimento inválido",
+        "03-51": "CEP incompatível com a unidade da federação",
+        "03-15": "Características da cobrança incompatíveis",
+        "03-00": "Entrada Rejeitada",
+        "03-41": "Pedido de cancelamento/sustação para títulos sem instrução de protesto",
+        "03-12": "Tipo de documento inválido",
+        "03-09": "Nosso número duplicado",
+        "03-21": "Espécie do título inválida",
+        "03-25": "Data de emissão posterior à data de entrada",
+        "03-40": "Título com ordem de protesto emitida",
+        "03-05": "Código de movimento inválido",
+        "03-48": "CEP inválido",
+        "03-36": "Concessão de abatimento - já existe abatimento anterior",
+        "03-07": "Agência/conta DV inválidos",
+        "03-34": "Valor do abatimento maior ou igual ao valor do título",
+        "03-30": "Desconto a conceder não confere",
+        "03-31": "Concessão de desconto - já existe desconto anterior",
+        "03-10": "Carteira inválida",
+        "03-39": "Pedido de protesto não permitido para o título",
+        "03-04": "Código de movimento não permitido para a carteira",
+        "03-37": "Código para protesto inválido",
+        "03-32": "Valor de IOF",
+        "03-50": "CEP referente a um Banco Correspondente",
+        "03-19": "Título a cargo de bancos correspondentes com vencimento inferior a xx dias",
+        "03-08": "Nosso número inválido",
+        "03-26": "Código de juros de mora inválido",
+        "03-13": "Identificação da emissão do boleto inválida",
+        "03-16": "Data de vencimento inválida",
+        "03-49": "CEP sem praça de cobrança (não localizado)",
+        "03-11": "Forma de cadastramento do título inválida Se desconto título rejeitado-operação de desconto/limite",
+        "03-29": "Valor do desconto maior ou igual ao valor do título",
+        "03-47": "Endereço do sacado não informado",
+        "03-22": "Espécie não permitida para a carteira",
+        "03-46": "Tipo/Número de inscrição do sacado inválido",
+        "03-18": "Vencimento fora do prazo de operação",
+        "03-45": "Nome do sacado não informado",
+        "03-14": "Identificação da distribuição do boleto inválida",
+        "03-44": "Código de moeda inválido",
+        "03-01": "Código do Banco Inválido",
+        "03-42": "Código para baixa/devolução inválido",
+        "03-38": "Prazo para protesto inválido",
+        "03-06": "Tipo/número de inscrição do cedente inválidos",
+        "03-03": "Código do segmento inválido",
+        "03-27": "Valor/taxa de juros de mora inválido",
+        "03-28": "Código de desconto inválido",
+        "04-00": "Transferência de carteira/entrada",
+        "05-00": "Transferência de carteira/baixa",
+        "06-06": "Arquivo magnético",
+        "06-08": "Em cartório",
+        "06-00": "Liquidação",
+        "06-05": "Compensação convencional",
+        "06-02": "Por conta",
+        "06-03": "No próprio banco",
+        "06-07": "Após feriado local",
+        "06-01": "Por saldo",
+        "06-04": "Compensação eletrônica",
+        "09-00": "Baixa",
+        "09-04": "Decurso prazo - cliente",
+        "09-05": "Decurso prazo - banco",
+        "09-02": "Comandada cliente arquivo",
+        "09-01": "Comandada banco",
+        "09-03": "Comandada cliente on-line",
+        "11-00": "Título em carteira (em ser)",
+        "12-00": "Confirmação recebimento instrução de abatimento",
+        "13-00": "Confirmação recebimento instrução de cancelamento abatimento",
+        "14-00": "Confirmação recebimento instrução alteração de vencimento",
+        "17-08": "Em cartório",
+        "17-13": "Decurso prazo - banco",
+        "17-06": "Arquivo magnético",
+        "17-02": "Por conta",
+        "17-12": "Decurso prazo - cliente",
+        "17-11": "Comandada cliente on-line",
+        "17-07": "Após feriado local",
+        "17-09": "Comandada banco",
+        "17-00": "Liquidação após baixa ou liquidação título não registrado",
+        "17-03": "No próprio banco",
+        "17-01": "Por Saldo",
+        "17-04": "Compensação eletrônica",
+        "17-10": "Comandada cliente arquivo",
+        "17-05": "Compensação convencional",
+        "19-00": "Confirmação recebimento instrução de protesto",
+        "20-00": "Confirmação recebimento instrução de sustação/cancelamento de protesto",
+        "23-00": "Remessa a cartório (aponte em cartório)",
+        "24-00": "Retirada de cartório e manutenção em carteira",
+        "25-00": "Protestado e baixado (baixa por ter sido protestado)",
+        "26-01": "Código do banco inválido",
+        "26-00": "Instrução rejeitada",
+        "26-05": "Código de movimento inválido",
+        "26-06": "Tipo/número de inscrição do cedente inválidos",
+        "26-07": "Agência/conta/DV inválido",
+        "26-04": "Código do movimento não permitido para carteira",
+        "26-10": "Carteira inválida",
+        "26-09": "Nosso número duplicado",
+        "26-02": "Código do registro inválido",
+        "26-08": "Nosso número inválido",
+        "26-03": "Código do segmento inválido",
+        "27-00": "Confirmação do pedido de alteração de outros dados",
+        "28-00": "Débito de tarifas/custas",
+        "29-00": "Ocorrências do sacado",
+        "30-09": "Nosso número duplicado",
+        "30-10": "Carteira inválida",
+        "30-04": "Código do movimento não permitido para carteira",
+        "30-05": "Código de movimento inválido",
+        "30-00": "Alteração de dados rejeitada",
+        "30-01": "Código do banco inválido",
+        "30-03": "Código do segmento inválido",
+        "30-06": "Tipo/número de inscrição do cedente inválidos",
+        "30-07": "Agência/conta/DV inválido",
+        "30-02": "Código do registro detalhe inválido",
+        "30-08": "Nosso número inválido",
+        "51-00": "Título DDA reconhecido pelo sacado",
+        "52-00": "Título DDA não reconhecido pelo sacado SANTANDER"
+
+    }
+
+    const chaveSantander = `${ocorrenciaSantander.toLowerCase()}-${motivoSantander.toUpperCase()}`;
+
+
+
+    if (mapaOcorrenciaMotivoSantander[chaveSantander]) {
+        return mapaOcorrenciaMotivoSantander[chaveSantander];
+    } else {
+        return "Combinação de ocorrência e motivo inválida";
+    }
+}
+
+
+
+function consultarSantander() {
+    const ocorrenciaSantander = document.getElementById("ocorrenciaSantander").value.trim().padStart(2, '0');
+    const motivoSantander = document.getElementById("motivoSantander").value.trim().padStart(2, '0');
+
+    const nomePessoaSantander = obterNomePorOcorrenciaSantander(ocorrenciaSantander, motivoSantander);
+    document.getElementById("resultadoSantander").innerText = "Resultado: " + nomePessoaSantander;
+}
+
+
+/*Sicoob240*/
+
+function obterNomePorOcorrenciaSicoob240(ocorrenciaSicoob240, motivoSicoob240) {
+    const mapaOcorrenciaMotivoSicoob240 = {
+        "02-00": "Entrada Confirmada",
+        "02-00": "Entrada Confirmada",
+        "03-00": "Entrada Rejeitada",
+        "03-03": "Tarifa Desistência",
+        "04-00": "Transferência de Carteira/Entrada",
+        "05-00": "Transferência de Carteira/Baixa",
+        "06-00": "Liquidação",
+        "07-00": "Confirmação do Recebimento da Instrução de Desconto",
+        "08-00": "Confirmação do Recebimento do Cancelamento do Desconto",
+        "09-00": "Baixa",
+        "11-00": "Títulos em Carteira (Em Ser)",
+        "12-00": "Confirmação Recebimento Instrução de Abatimento",
+        "13-00": "Confirmação Recebimento Instrução de Cancelamento Abatimento",
+        "14-00": "Confirmação Recebimento Instrução Alteração de Vencimento",
+        "15-00": "Franco de Pagamento",
+        "17-00": "Liquidação Após Baixa ou Liquidação Título Não Registrado",
+        "19-00": "Confirmação Recebimento Instrução de Protesto",
+        "20-00": "Confirmação Recebimento Instrução De Sustação / Cancelamento de Protesto",
+        "23-00": "Remessa a Cartório (Aponte a Cartório)",
+        "24-00": "Retirada de Cartório e Manutenção em Carteira",
+        "25-00": "Protestado e Baixado (Baixa por Ter Sido Protestado)",
+        "26-00": "Instrução Rejeitada",
+        "27-00": "Confirmação do Pedido de Alteração de Outros Dados",
+        "28-00": "Débito de Tarifas/Custas",
+        "29-00": "Ocorrência do Pagador",
+        "30-00": "Alteração de Dados Rejeitada",
+        "33-00": "Confirmação da Alteração dos Dados do Rateio de Crédito",
+        "34-00": "Confirmação do Cancelamento dos Dados do Rateio de Crédito",
+        "35-00": "Confirmação do Desagendamento do Débito Automático",
+        "36-00": "Confirmação de envio de e-mail/SMS",
+        "37-00": "Envio de e-mail/SMS rejeitado",
+        "38-00": "Confirmação de Alteração do Prazo Limite de Recebimento (a data deve ser",
+        "40-00": "Confirmação da alteração do número do título dado pelo beneficiário",
+        "41-00": "Confirmação da alteração do número controle do Participante",
+        "42-00": "Confirmação da alteração dos dados do Pagador",
+        "43-00": "Confirmação da alteração dos dados do Sacador/Avalista",
+        "44-00": "Título pago com cheque devolvido",
+        "45-00": "Título pago com cheque compensado",
+        "46-00": "Instrução para cancelar protesto confirmada",
+        "47-00": "Instrução para protesto para fins falimentares confirmada",
+        "48-00": "Confirmação de instrução de transferência de carteira/modalidade de cobrança",
+        "49-00": "Alteração de contrato de cobrança",
+        "50-00": "Título pago com cheque pendente de liquidação",
+        "51-00": "Título DDA reconhecido pelo pagador",
+        "52-00": "Título DDA não reconhecido pelo pagador",
+        "53-00": "Título DDA recusado pela CIP",
+        "54-00": "Confirmação da Instrução de Baixa de Título Negativado sem Protesto",
+        "55-00": "Confirmação de Pedido de Dispensa de Multa",
+        "56-00": "Confirmação do Pedido de Cobrança de Multa",
+        "57-00": "Confirmação do Pedido de Alteração de Cobrança de Juros",
+        "58-00": "Confirmação do Pedido de Alteração do Valor/Data de Desconto",
+        "59-00": "Confirmação do Pedido de Alteração do Beneficiário do Título",
+        "60-00": "Confirmação do Pedido de Dispensa de Juros de Mora - sicoob"
+
+    }
+
+    const chaveSicoob240 = `${ocorrenciaSicoob240.toLowerCase()}-${motivoSicoob240.toUpperCase()}`;
+
+
+
+    if (mapaOcorrenciaMotivoSicoob240[chaveSicoob240]) {
+        return mapaOcorrenciaMotivoSicoob240[chaveSicoob240];
+    } else {
+        return "Combinação de ocorrência e motivo inválida";
+    }
+}
+
+
+
+function consultarSicoob240() {
+    const ocorrenciaSicoob240 = document.getElementById("ocorrenciaSicoob240").value.trim().padStart(2, '0');
+    const motivoSicoob240 = document.getElementById("motivoSicoob240").value.trim().padStart(2, '0');
+
+    const nomePessoaSicoob240 = obterNomePorOcorrenciaSicoob240(ocorrenciaSicoob240, motivoSicoob240);
+    document.getElementById("resultadoSicoob240").innerText = "Resultado: " + nomePessoaSicoob240;
+}
+
+
+
+/*Grafeno400*/
+
+function obterNomePorOcorrenciaGrafeno400(ocorrenciaGrafeno400, motivoGrafeno400) {
+    const mapaOcorrenciaMotivoGrafeno400 = {
+        "02-00": "Entrada Confirmada",
+        "02-17": "Data de Vencimento anterior à Data de Emissão",
+        "02-21": "Espécie do Título Inválida",
+        "02-45": "Nome do Sacado Inválido",
+        "02-46": "CNPJ/CPF do Sacado Inválido",
+        "02-47": "Endereço do Sacado Não Informado",
+        "02-48": "CEP Irregular",
+        "02-53": "CNPJ/CPF do Cliente Inválido",
+        "02-54": "Cliente Não Informado",
+        "02-67": "Débito Automático Agendado",
+        "02-68": "Débito não Agendado - Erro nos Dados de Remessa",
+        "02-69": "Débito não Agendado - Sacado não Cadastrado",
+        "02-70": "Débito não Agendado - Cedente não Autorizado",
+        "02-71": "Débito não Agendado - Cedente sem Débito Automático",
+        "02-72": "Débito não Agendado - Código Moeda Diferente de R$",
+        "02-73": "Débito não Agendado - Data de Vencimento Inválida",
+        "03-02": "Código do Registro Detalhe Inválido",
+        "03-03": "Código de Ocorrência Inválido",
+        "03-04": "Código de Ocorrência não Permitido para a Carteira",
+        "03-05": "Código de Ocorrência não Numérico",
+        "03-08": "Nosso Número Inválido",
+        "03-09": "Nosso Número Duplicado",
+        "03-10": "Carteira Inválida",
+        "03-16": "Data de Vencimento Inválida",
+        "03-18": "Vencimento Fora do Prazo de Operação",
+        "03-20": "Valor do Título Inválido",
+        "03-21": "Espécie do Título Inválida",
+        "03-22": "Espécie não Permitida para a Carteira",
+        "03-24": "Data de Emissão Inválida",
+        "03-38": "Prazo para Protesto Inválido",
+        "03-44": "Agência Cedente não Prevista",
+        "03-50": "CEP Irregular - Banco Correspondente",
+        "03-63": "Entrada para Título já Cadastrado",
+        "03-74": "Débito não Agendado, Título não Registrado",
+        "06-00": "Liquidação Normal",
+        "06-15": "Liquidação com Cheque",
+        "09-10": "Baixa Comandada pela Empresa",
+        "10-00": "Baixa Comandada",
+        "10-14": "Título Protestado",
+        "10-16": "Baixado por Tempo Excedido",
+        "10-20": "Mudança de Carteira",
+        "11-00": "Em SER - Arquivo de Títulos Pendentes",
+        "12-00": "Abatimento Concedido",
+        "13-00": "Abatimento Cancelado",
+        "14-00": "Vencimento Alterado",
+        "15-00": "Liquidação em Cartório",
+        "17-00": "Liquidação após Baixa ou Título não Registrado",
+        "18-00": "Acerto de Depositária",
+        "19-00": "Título Encaminhado a Cartório",
+        "20-00": "Confirmação Recebimento Instrução Sustação de Protesto",
+        "21-00": "Acerto de Controle de Participante",
+        "23-00": "Entrada de Título em Cartório",
+        "24-48": "CEP Inválido",
+        "27-07": "Baixa Rejeitada - Agência/Conta/Dígito Inválidos",
+        "27-08": "Baixa Rejeitada - Nosso Número Inválido",
+        "27-10": "Baixa Rejeitada - Carteira Inválida",
+        "27-15": "Baixa Rejeitada - Carteira/Agência/Conta/Nosso Número Inválidos",
+        "27-40": "Baixa Rejeitada - Título com Protesto Emitido",
+        "27-42": "Baixa Rejeitada - Código via Telebradesco Inválido",
+        "27-60": "Baixa Rejeitada - Movimento para Título não Cadastrado",
+        "28-03": "Tarifa de Sustação",
+        "28-04": "Tarifa de Protesto",
+        "28-08": "Custas de Protesto",
+        "30-01": "Alteração - Código do Banco Inválido",
+        "30-05": "Alteração - Código da Ocorrência não Numérico",
+        "30-08": "Alteração - Nosso Número Inválido",
+        "30-15": "Alteração - Carteira/Agência/Conta/Nosso Número Inválidos",
+        "30-28": "Alteração - Código via Telebradesco Inválido",
+        "30-29": "Alteração - Valor de Desconto Maior ou Igual ao Valor do Título",
+        "30-33": "Alteração - Valor do Abatimento Inválido",
+        "30-34": "Alteração - Valor do Abatimento Maior ou Igual ao Valor do Título",
+        "30-38": "Alteração - Prazo para Protesto Inválido",
+        "30-39": "Alteração - Pedido de Protesto não Permitido",
+        "30-40": "Alteração - Título com Protesto Emitido",
+        "30-60": "Alteração - Movimento para Título não Cadastrado",
+        "32-01": "Instrução Rejeitada - Código do Banco Inválido",
+        "32-02": "Instrução Rejeitada - Código do Registro Detalhe Inválido",
+        "32-04": "Instrução Rejeitada - Código de Ocorrência não Permitido",
+        "32-05": "Instrução Rejeitada - Código de Ocorrência não Numérico",
+        "32-07": "Instrução Rejeitada - Agência/Conta/Dígito Inválidos",
+        "32-08": "Instrução Rejeitada - Nosso Número Inválido",
+        "32-10": "Instrução Rejeitada - Carteira Inválida",
+        "32-16": "Instrução Rejeitada - Data de Vencimento Inválida",
+        "32-17": "Instrução Rejeitada - Vencimento Anterior à Emissão",
+        "32-18": "Instrução Rejeitada - Vencimento Fora do Prazo de Operação",
+        "32-21": "Instrução Rejeitada - Espécie do Título Inválida",
+        "32-22": "Instrução Rejeitada - Espécie não Permitida",
+        "32-24": "Instrução Rejeitada - Data de Emissão Inválida",
+        "32-28": "Instrução Rejeitada - Código Telebradesco Inválido",
+        "32-29": "Instrução Rejeitada - Desconto Maior ou Igual ao Valor do Título",
+        "32-31": "Instrução Rejeitada - Já Existe Desconto Anterior",
+        "32-33": "Instrução Rejeitada - Valor do Abatimento Inválido",
+        "32-34": "Instrução Rejeitada - Abatimento Maior ou Igual ao Valor do Título",
+        "32-36": "Instrução Rejeitada - Já Existe Abatimento Anterior",
+        "32-38": "Instrução Rejeitada - Prazo de Protesto Inválido",
+        "32-39": "Instrução Rejeitada - Pedido de Protesto não Permitido",
+        "32-40": "Instrução Rejeitada - Título com Protesto Emitido",
+        "32-41": "Instrução Rejeitada - Pedido de Cancelamento/Sustação Inválido",
+        "32-45": "Instrução Rejeitada - Nome do Sacado não Informado",
+        "32-46": "Instrução Rejeitada - CNPJ/CPF do Sacado Inválidos",
+        "32-47": "Instrução Rejeitada - Endereço do Sacado não Informado",
+        "32-48": "Instrução Rejeitada - CEP Inválido",
+        "32-50": "Instrução Rejeitada - Banco Correspondente",
+        "32-60": "Instrução Rejeitada - Movimento para Título não Cadastrado",
+        "33-00": "Confirmação Pedido de Alteração de Outros Dados",
+        "34-00": "Retirado de Cartório e Manutenção de Carteira",
+        "35-81": "Tentativas de Desagendamento Esgotadas - Baixado",
+        "35-82": "Tentativas de Desagendamento Esgotadas - Pendente - GRAFENO"
+
+    }
+
+    const chaveGrafeno400 = `${ocorrenciaGrafeno400.toLowerCase()}-${motivoGrafeno400.toUpperCase()}`;
+
+
+
+    if (mapaOcorrenciaMotivoGrafeno400[chaveGrafeno400]) {
+        return mapaOcorrenciaMotivoGrafeno400[chaveGrafeno400];
+    } else {
+        return "Combinação de ocorrência e motivo inválida";
+    }
+}
+
+
+
+function consultarGrafeno400() {
+    const ocorrenciaGrafeno400 = document.getElementById("ocorrenciaGrafeno400").value.trim().padStart(2, '0');
+    const motivoGrafeno400 = document.getElementById("motivoGrafeno400").value.trim().padStart(2, '0');
+
+    const nomePessoaGrafeno400 = obterNomePorOcorrenciaGrafeno400(ocorrenciaGrafeno400, motivoGrafeno400);
+    document.getElementById("resultadoGrafeno400").innerText = "Resultado: " + nomePessoaGrafeno400;
+}

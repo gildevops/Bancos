@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="reset.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 </head>
@@ -23,17 +23,19 @@
     </div>-->
 
 
-
-
-
+    
     <div class="navigation">
         <ul>
             <li>
-                <a href="#">
+                <a href="Banco.html">
                     <span class="icon"><i class="fa fa-home" aria-hidden="true"></i></span>
-                    <span class="title">Menu</span>
+                    <span class="title">Bancos</span>
+                    
+    
                 </a>
             </li>
+
+            <!---
             <li>
                 <a href="#">
                     <span class="icon"><i class="fa fa-info-circle" aria-hidden="true"></i></span>
@@ -57,6 +59,7 @@
                     <span class="title">Query</span>
                 </a>
             </li>
+        --->
         </ul>
     </div>
 
@@ -77,11 +80,11 @@
 
             <h3 class="testeTexto1">
                 <img class="logo_bradesco" src="./icon/logo_bradesco.png" alt="Logo Bradesco">
-                Bradesco - CNAB400
+                Bradesco - CNAB400 237
             </h3>
 
             <h2 class="ac-header">
-                <button class="ac-trigger">Consulta de Ocorrência e Motivo</button>
+                <button class="ac-trigger">Consultar Ocorrência e Motivo</button>
             </h2>
 
             <div class="container">
@@ -116,11 +119,11 @@
 
             <h3 class="testeTexto1">
                 <img class="logo_itau" src="./icon/logo_itau.png" alt="Logo Bradesco">
-                itaú - CNAB400
+                itaú - CNAB400 341
             </h3>
 
             <h2 class="ac-header">
-                <button class="ac-trigger">Consulta de Ocorrência e Motivo</button>
+                <button class="ac-trigger">Consultar Ocorrência e Motivo</button>
             </h2>
 
             <div class="container">
@@ -150,11 +153,11 @@
 
             <h3 class="testeTexto1">
                 <img class="logo_bbrasil" src="./icon/logo_bbrasil.png" alt="Logo Bradesco">
-                Banco do Brasil - CNAB400
+                Banco do Brasil - CNAB400 001
             </h3>
 
             <h2 class="ac-header">
-                <button class="ac-trigger">Consulta de Ocorrência e Motivo</button>
+                <button class="ac-trigger">Consultar Ocorrência e Motivo</button>
             </h2>
 
             <div class="container">
@@ -186,11 +189,11 @@
 
             <h3 class="testeTexto1">
                 <img class="logo_bbrasil" src="./icon/logo_bbrasil.png" alt="Logo Bradesco">
-                Banco do Brasil - CNAB240
+                Banco do Brasil - CNAB240 001
             </h3>
 
             <h2 class="ac-header">
-                <button class="ac-trigger">Consulta de Ocorrência e Motivo</button>
+                <button class="ac-trigger">Consultar Ocorrência e Motivo</button>
             </h2>
 
             <div class="container">
@@ -222,11 +225,11 @@
 
             <h3 class="testeTexto1">
                 <img class="logo_banrisul" src="./icon/logo_banrisul.png" alt="logo_banrisul">
-                Banco Banrisul - CNAB400
+                Banco Banrisul - CNAB400 - 041
             </h3>
 
             <h2 class="ac-header">
-                <button class="ac-trigger">Consulta de Ocorrência e Motivo</button>
+                <button class="ac-trigger">Consultar Ocorrência e Motivo</button>
             </h2>
 
             <div class="container">
@@ -258,11 +261,11 @@
 
             <h3 class="testeTexto1">
                 <img class="logo_safra" src="./icon/logo_safra.png" alt="logo_safra">
-                Banco Banrisul - CNAB400
+                Safra - CNAB400 - 422
             </h3>
 
             <h2 class="ac-header">
-                <button class="ac-trigger">Consulta de Ocorrência e Motivo</button>
+                <button class="ac-trigger">Consultar Ocorrência e Motivo</button>
             </h2>
 
             <div class="container">
@@ -296,11 +299,11 @@
 
             <h3 class="testeTexto1">
                 <img class="logo_caixa" src="./icon/logo_caixa.png" alt="logo_safra">
-                Caixa Economica Federal - CNAB240
+                Caixa Economica Federal - CNAB240 104
             </h3>
 
             <h2 class="ac-header">
-                <button class="ac-trigger">Consulta de Ocorrência e Motivo</button>
+                <button class="ac-trigger">Consultar Ocorrência e Motivo</button>
             </h2>
 
             <div class="container">
@@ -328,10 +331,186 @@
             </div>
 
         </li>
+        <li class="ac1">
+
+            <h3 class="testeTexto1">
+                <img class="logo_caixa" src="./icon/logo_bancoBancoBIC.png" alt="logo_bancobic">
+                Bic Banco - CNAB400 320
+            </h3>
+
+            <h2 class="ac-header">
+                <button class="ac-trigger">Consultar Ocorrência e Motivo</button>
+            </h2>
+
+            <div class="container">
+                <div class="ocorrencia">
+                    <label for="ocorrencia">Ocorrência:</label>
+                </div>
+
+                <div class="digite">
+                    <input type="text" id="ocorrenciaBancoBic" placeholder="Digite a ocorrência">
+                </div>
+
+                <div class="ocorrencia">
+                    <label for="motivo">Motivo:</label>
+                </div>
+
+                <div class="digite">
+                    <input type="text" id="motivoBancoBic" placeholder="Digite o motivo">
+                </div>
 
 
+                <div class="botaoOcorrencia">
+                    <button class="meuBotao" onclick="consultarBancoBic()">Consultar</button>
+                    <div class="resultado" id="resultadoBancoBic"></div>
+                </div>
+            </div>
+
+        </li>
+        <li class="ac1">
+
+            <h3 class="testeTexto1">
+                <img class="logo_caixa" src="./icon/logo_livebank.png" alt="logo_bancoLiveBank">
+                LiveBank - CNAB400 274
+            </h3>
+
+            <h2 class="ac-header">
+                <button class="ac-trigger">Consultar Ocorrência e Motivo</button>
+            </h2>
+
+            <div class="container">
+                <div class="ocorrencia">
+                    <label for="ocorrencia">Ocorrência:</label>
+                </div>
+
+                <div class="digite">
+                    <input type="text" id="ocorrenciaLiveBank" placeholder="Digite a ocorrência">
+                </div>
+
+                <div class="ocorrencia">
+                    <label for="motivo">Motivo:</label>
+                </div>
+
+                <div class="digite">
+                    <input type="text" id="motivoLiveBank" placeholder="Digite o motivo">
+                </div>
 
 
+                <div class="botaoOcorrencia">
+                    <button class="meuBotao" onclick="consultarLiveBank()">Consultar</button>
+                    <div class="resultado" id="resultadoLiveBank"></div>
+                </div>
+            </div>
+
+        </li>
+        <li class="ac1">
+
+            <h3 class="testeTexto1">
+                <img class="logo_caixa" src="./icon/logo_santander.png" alt="logo_bancoLiveBank">
+                Santander - CNAB240 033
+            </h3>
+
+            <h2 class="ac-header">
+                <button class="ac-trigger">Consulta de Ocorrência e Motivo</button>
+            </h2>
+
+            <div class="container">
+                <div class="ocorrencia">
+                    <label for="ocorrencia">Ocorrência:</label>
+                </div>
+
+                <div class="digite">
+                    <input type="text" id="ocorrenciaSantander" placeholder="Digite a ocorrência">
+                </div>
+
+                <div class="ocorrencia">
+                    <label for="motivo">Motivo:</label>
+                </div>
+
+                <div class="digite">
+                    <input type="text" id="motivoSantander" placeholder="Digite o motivo">
+                </div>
+
+
+                <div class="botaoOcorrencia">
+                    <button class="meuBotao" onclick="consultarSantander()">Consultar</button>
+                    <div class="resultado" id="resultadoSantander"></div>
+                </div>
+            </div>
+
+        </li>
+        <li class="ac1">
+
+            <h3 class="testeTexto1">
+                <img class="logo_sicoob" src="./icon/logo_sicoob.png" alt="logo_bancoLiveBank">
+                Sicoob - CNAB240 756
+            </h3>
+
+            <h2 class="ac-header">
+                <button class="ac-trigger">Consultar Ocorrência e Motivo</button>
+            </h2>
+
+            <div class="container">
+                <div class="ocorrencia">
+                    <label for="ocorrencia">Ocorrência:</label>
+                </div>
+
+                <div class="digite">
+                    <input type="text" id="ocorrenciaSicoob240" placeholder="Digite a ocorrência">
+                </div>
+
+                <div class="ocorrencia">
+                    <label for="motivo">Motivo:</label>
+                </div>
+
+                <div class="digite">
+                    <input type="text" id="motivoSicoob240" placeholder="Digite o motivo">
+                </div>
+
+
+                <div class="botaoOcorrencia">
+                    <button class="meuBotao" onclick="consultarSicoob240()">Consultar</button>
+                    <div class="resultado" id="resultadoSicoob240"></div>
+                </div>
+            </div>
+
+        </li>
+        <li class="ac1">
+
+            <h3 class="testeTexto1">
+                <img class="logo_grafeno" src="./icon/logo_grafeno.png" alt="logo_bancoLiveBank">
+                Grafeno - CNAB400 - 237
+            </h3>
+
+            <h2 class="ac-header">
+                <button class="ac-trigger">Consultar Ocorrência e Motivo</button>
+            </h2>
+
+            <div class="container">
+                <div class="ocorrencia">
+                    <label for="ocorrencia">Ocorrência:</label>
+                </div>
+
+                <div class="digite">
+                    <input type="text" id="ocorrenciaGrafeno400" placeholder="Digite a ocorrência">
+                </div>
+
+                <div class="ocorrencia">
+                    <label for="motivo">Motivo:</label>
+                </div>
+
+                <div class="digite">
+                    <input type="text" id="motivoGrafeno400" placeholder="Digite o motivo">
+                </div>
+
+
+                <div class="botaoOcorrencia">
+                    <button class="meuBotao" onclick="consultarGrafeno400()">Consultar</button>
+                    <div class="resultado" id="resultadoGrafeno400"></div>
+                </div>
+            </div>
+
+        </li>
 
 
 
@@ -348,7 +527,10 @@
                 <div class="colum1">
                     <h1>Mais informações</h1>
 
-                    <p>xxxxxxxxxxxx</p>
+                    <p>Prezados,
+                        Gostaria de informar que nosso projeto está em desenvolvimento. Nossa equipe está trabalhando ativamente para atender aos requisitos. Manteremos todos atualizados sobre o progresso.
+                        Agradecemos pelo apoio contínuo.
+                        Atenciosamente!</p>
 
                 </div>
 
@@ -436,6 +618,7 @@
     </footer>
 
 </body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 
